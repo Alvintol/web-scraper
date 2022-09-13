@@ -13,5 +13,8 @@ for item in items:
   # price = item.find(class_='pull-right price').get_text()
   # print('-------PRICE-------:', '\n', price)
   
-  link = item.find('a')['href']
-  print('-------LINK-------:', '\n', link)
+  # link = item.find('a')['href']
+  # print('-------LINK-------:', '\n', link)
+  
+  rating = item.find(attrs={'data-rating': True})
+  print('-------LINK-------:', '\n', len(rating))
