@@ -27,4 +27,4 @@ for item in items:
     avgRating.append(len(rating))
     reducedRating = functools.reduce(lambda a, b: a+b, avgRating) / len(avgRating)
     print('-------RATING-------:', '\n', len(rating))
-    print('-------AVERAGE RATING-------:', '\n', reducedRating)
+    print('-------AVERAGE RATING-------:', '\n', f'{reducedRating:.2f}')
