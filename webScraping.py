@@ -25,6 +25,6 @@ for item in items:
 
     rating = item.find(attrs={'data-rating': True})
     avgRating.append(len(rating))
+    reducedRating = functools.reduce(lambda a, b: a+b, avgRating) / len(avgRating)
     print('-------RATING-------:', '\n', len(rating))
-    print('-------AVERAGE RATING-------:', '\n',
-          avgRating.reduce(lambda a, b: a+b, avgRating))
+    print('-------AVERAGE RATING-------:', '\n', reducedRating)
