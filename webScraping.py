@@ -18,6 +18,7 @@ for item in items:
     # print('-------ITEM-------:', '\n', item)
 
     price = item.find(class_='pull-right price').get_text()
+    price = price.replace('$', '')
     avgPriceList.append(price)
     print('-------PRICE-------:', '\n', price)
     print('-------AVERAGE PRICE-------:', '\n', avgPrice)
