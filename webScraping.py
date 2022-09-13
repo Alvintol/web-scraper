@@ -14,25 +14,34 @@ avgRatingList = []
 avgPrice = 0
 avgRating = 0
 
-for item in items:
-    # print('-------ITEM-------:', '\n', item)
+with open('average.csv', 'w') as csv_file:
+    csv_writer = writer(csv_file)
+    headers = ['Price', 'Rating']
+    csv_writer.writerow(headers)
 
-    price = item.find(class_='pull-right price').get_text()
-    price = price.replace('$', '')
-    
-    avgPriceList.append(float(price))
-    avgPrice = functools.reduce(lambda a,b: a+b, avgPriceList) / len(avgPriceList)
-    
-    print('-------PRICE-------:', '\n', price)
+    for item in items:
+        # print('-------ITEM-------:', '\n', item)
 
-    # link = item.find('a')['href']
-    # print('-------LINK-------:', '\n', link)
+        price = item.find(class_='pull-right price').get_text()
+        price = price.replace('$', '')
 
-    rating = item.find(attrs={'data-rating': True})
-    
-    avgRatingList.append(len(rating))
-    avgRating = float(functools.reduce(lambda a, b: a+b, avgRatingList) / len(avgRatingList))
-    
-    print('-------RATING-------:', '\n', len(rating))
+        avgPriceList.append(float(price))
+        avgPrice = functools.reduce(
+            lambda a, b: a+b, avgPriceList) / len(avgPriceList)
+
+        print('-------PRICE-------:', '\n', price)
+
+        # link = item.find('a')['href']
+        # print('-------LINK-------:', '\n', link)
+
+        rating = item.find(attrs={'data-rating': True})
+
+        avgRatingList.append(len(rating))
+        avgRating = float(functools.reduce(lambda a, b: a+b,
+                          avgRatingList) / len(avgRatingList))
+
+        csv_writer.writerow([avgPrice, avgRating])
+
+        print('-------RATING-------:', '\n', len(rating))
 print('-------AVERAGE PRICE-------:', '\n', f'${avgPrice:.2f}')
 print('-------AVERAGE RATING-------:', '\n', f'{avgRating:.2f}')
