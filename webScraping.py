@@ -19,7 +19,9 @@ for item in items:
 
     price = item.find(class_='pull-right price').get_text()
     price = price.replace('$', '')
-    avgPriceList.append(price)
+    
+    avgPriceList.append(float(price))
+    avgPrice = functools.reduce(lambda a,b: a+b, avgPriceList) / len(avgPriceList)
     print('-------PRICE-------:', '\n', price)
     print('-------AVERAGE PRICE-------:', '\n', avgPrice)
 
@@ -27,7 +29,9 @@ for item in items:
     # print('-------LINK-------:', '\n', link)
 
     rating = item.find(attrs={'data-rating': True})
+    
     avgRatingList.append(len(rating))
     avgRating = float(functools.reduce(lambda a, b: a+b, avgRatingList) / len(avgRatingList))
+    
     print('-------RATING-------:', '\n', len(rating))
     print('-------AVERAGE RATING-------:', '\n', f'{avgRating:.2f}')
