@@ -22,8 +22,8 @@ for item in items:
     
     avgPriceList.append(float(price))
     avgPrice = functools.reduce(lambda a,b: a+b, avgPriceList) / len(avgPriceList)
+    
     print('-------PRICE-------:', '\n', price)
-    print('-------AVERAGE PRICE-------:', '\n', avgPrice)
 
     # link = item.find('a')['href']
     # print('-------LINK-------:', '\n', link)
@@ -34,4 +34,5 @@ for item in items:
     avgRating = float(functools.reduce(lambda a, b: a+b, avgRatingList) / len(avgRatingList))
     
     print('-------RATING-------:', '\n', len(rating))
-    print('-------AVERAGE RATING-------:', '\n', f'{avgRating:.2f}')
+print('-------AVERAGE PRICE-------:', '\n', f'${avgPrice:.2f}')
+print('-------AVERAGE RATING-------:', '\n', f'{avgRating:.2f}')
