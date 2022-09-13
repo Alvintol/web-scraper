@@ -9,14 +9,16 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 items = soup.findAll(class_='col-sm-4 col-lg-4 col-md-4')
 
-avgPrice = []
-avgRating = []
+avgPriceList = []
+avgRatingList = []
+avgPrice = 0
+avgRating = 0
 
 for item in items:
     # print('-------ITEM-------:', '\n', item)
 
     price = item.find(class_='pull-right price').get_text()
-    avgPrice.append(price)
+    avgPriceList.append(price)
     print('-------PRICE-------:', '\n', price)
     print('-------AVERAGE PRICE-------:', '\n', avgPrice)
 
@@ -24,7 +26,7 @@ for item in items:
     # print('-------LINK-------:', '\n', link)
 
     rating = item.find(attrs={'data-rating': True})
-    avgRating.append(len(rating))
-    reducedRating = functools.reduce(lambda a, b: a+b, avgRating) / len(avgRating)
+    avgRatingList.append(len(rating))
+    avgRating = float(functools.reduce(lambda a, b: a+b, avgRatingList) / len(avgRatingList))
     print('-------RATING-------:', '\n', len(rating))
-    print('-------AVERAGE RATING-------:', '\n', f'{reducedRating:.2f}')
+    print('-------AVERAGE RATING-------:', '\n', f'{avgRating:.2f}')
