@@ -40,7 +40,7 @@ with open('average.csv', 'w') as csv_file:
         avgRating = float(functools.reduce(lambda a, b: a+b,
                           avgRatingList) / len(avgRatingList))
 
-        csv_writer.writerow([avgPrice, avgRating])
+        csv_writer.writerow([f'${avgPrice:.2f}', f'{avgRating:.2f}'])
 
         print('-------RATING-------:', '\n', len(rating))
 print('-------AVERAGE PRICE-------:', '\n', f'${avgPrice:.2f}')
