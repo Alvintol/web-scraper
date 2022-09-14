@@ -17,3 +17,11 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from zipfile import ZipFile
 
+cdp = '/Users/dungeondaddy/Downloads/chromedriver'
+d = webdriver.Chrome(cdp)
+url = 'https://www.webscraper.io/test-sites/e-commerce/allinone'
+
+d.get(url)
+while(True):
+  pass
+
