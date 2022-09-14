@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
   
   # x = soup.find(id='section')
   # x = soup.find(class_='item') - must have _ after class since saved word
-  # x = soup.find(attrs={'data-id': 'test'})
+  # x = soup.find(attrs={'data-id': 'test'})*//////////*-901
   
 # Select - Similar to jQuery : Always returns a list
   # x = soup.select('#section1')
